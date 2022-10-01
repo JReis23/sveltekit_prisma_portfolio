@@ -42,7 +42,6 @@
 				<th>Name</th>
 				<th>Email</th>
 				<th>Date</th>
-				<th>Message</th>
 				<th>Type</th>
 				<th />
 				<th>Options</th>
@@ -54,15 +53,23 @@
 					<th>{i + 1}</th>
 					<td>{contact.name}</td>
 					<td>{contact.email}</td>
-					<td>{contact.createAt.toDateString()}</td>
-					<td>{contact.description.substring(0, 6)}...</td>
-					<td class="center">
+					<td>{contact.updateAt.toLocaleDateString()}</td>
+					<td class="relative">
 						{#if contact.choice === 'COMPLAIN'}
-							<span class="indicator-item badge badge-secondary">CP</span>
+							<span
+								class="absolute top-0 left-0 right-0 bottom-0 m-auto indicator-item badge badge-secondary"
+								>Complain</span
+							>
 						{:else if contact.choice === 'WORK'}
-							<span class="indicator-item badge badge-warning">W</span>
+							<span
+								class="absolute top-0 left-0 right-0 bottom-0 m-auto indicator-item badge badge-warning"
+								>Work</span
+							>
 						{:else if contact.choice === 'CONTACT'}
-							<span class="indicator-item badge badge-accent">C</span>
+							<span
+								class="absolute top-0 left-0 right-0 bottom-0 m-auto indicator-item badge badge-accent"
+								>Contact</span
+							>
 						{/if}
 					</td>
 					<td>

@@ -2,7 +2,7 @@
 	import '../app.postcss';
 	import Header from '$lib/components/Header.svelte';
 	import { page } from '$app/stores';
-	import '../app.css';
+	import '../app.postcss';
 </script>
 
 <svelte:head>

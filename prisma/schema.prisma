@@ -26,6 +26,7 @@ model Contact {
   email       String
   description String
   createAt    DateTime @default(now())
+  updateAt    DateTime @updatedAt
   choice      String
 }
 
@@ -34,3 +35,4 @@ model Contact {
 //   CONTACT
 //   COMPLAIN
 // }
+// 

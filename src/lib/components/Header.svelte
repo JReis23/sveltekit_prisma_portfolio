@@ -62,10 +62,14 @@
 						<li class="lnk">
 							<a href="#contact" on:click|preventDefault> Contact</a>
 						</li>
-						<li>
+						<li class="lnk">
 							{#if $page.data.user}
 								<div class="flex justify-end w-full">
-									<Button href="/logout" type="delLitle">Logout</Button>
+									<a href="/logout" type="delLitle">Logout</a>
+								</div>
+							{:else}
+								<div class="flex justify-end w-full">
+									<a href="/login">Login</a>
 								</div>
 							{/if}
 						</li>
@@ -122,10 +126,14 @@
 						<li class="lnk">
 							<a href="#contact" on:click|preventDefault> Contact</a>
 						</li>
-						<li>
+						<li class="lnk">
 							{#if $page.data.user}
 								<div class="flex justify-end w-full">
-									<Button href="/logout" type="delLitle">Logout</Button>
+									<a href="/logout" type="delLitle">Logout</a>
+								</div>
+							{:else}
+								<div class="flex justify-end w-full">
+									<a href="/login">Login</a>
 								</div>
 							{/if}
 						</li>

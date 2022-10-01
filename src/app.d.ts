@@ -6,7 +6,7 @@ declare namespace App {
 		user: string | boolean | null
 	}
 	// interface PageData {}
-	// interface PageError {}
+	// interface Error {}
 	// interface Platform {}
 }
 

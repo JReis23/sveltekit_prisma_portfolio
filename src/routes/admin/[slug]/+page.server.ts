@@ -3,12 +3,12 @@ import {db} from '$lib/db'
 
 export const load: PageServerLoad = async ({params}) => {
     const id = Number(params.slug)
-    const contactUnique = await db.contact.findUnique({
+    const contactUnique = await db.contact.findMany({
         where: {
           id
         },
       })
     
-    return contactUnique
+    return [contactUnique]
 
 }
