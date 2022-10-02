@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { enhance } from '$app/forms';
-	import { fly } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
 
 	export let data: PageData;
 
@@ -56,20 +54,11 @@
 					<td>{contact.updateAt.toLocaleDateString()}</td>
 					<td class="relative">
 						{#if contact.choice === 'COMPLAIN'}
-							<span
-								class="absolute top-0 left-0 right-0 bottom-0 m-auto indicator-item badge badge-secondary"
-								>Complain</span
-							>
+							<div class="rounded-full bg-rose-600 w-4 h-4" />
 						{:else if contact.choice === 'WORK'}
-							<span
-								class="absolute top-0 left-0 right-0 bottom-0 m-auto indicator-item badge badge-warning"
-								>Work</span
-							>
+							<div class="rounded-full bg-amber-500 w-4 h-4" />
 						{:else if contact.choice === 'CONTACT'}
-							<span
-								class="absolute top-0 left-0 right-0 bottom-0 m-auto indicator-item badge badge-accent"
-								>Contact</span
-							>
+							<div class="rounded-full bg-green-500 w-4 h-4" />
 						{/if}
 					</td>
 					<td>
