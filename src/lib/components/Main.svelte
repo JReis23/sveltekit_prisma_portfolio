@@ -2,7 +2,7 @@
 	import Button from '$lib/ui/Button.svelte';
 </script>
 
-<section id="index" class="h-screen flex justify-between">
+<section id="index" class="flex h-screen justify-between">
 	<div class="flex flex-col justify-center">
 		<h2>Salut, je m'appelle</h2>
 		<h1>João Reis</h1>
@@ -19,18 +19,6 @@
 				type="primary-main"
 				>Regardez mon CV !
 			</Button>
-		</div>
-	</div>
-	<div class="flex items-center">
-		<div class="flex justify-end w-full">
-			<lottie-player
-				src="https://assets1.lottiefiles.com/private_files/lf30_obidsi0t.json"
-				background="transparent"
-				speed="1"
-				style="width: 250px; height: 250px;"
-				loop
-				autoplay
-			/>
 		</div>
 	</div>
 </section>

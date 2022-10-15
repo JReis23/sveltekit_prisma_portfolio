@@ -16,7 +16,7 @@
 	{#each data[0] as contact}
 		{#if !showResponse}
 			<div
-				class="w-full p-16 rounded-xl contact relative grid grid-rows-2"
+				class="contact relative grid w-full grid-rows-2 rounded-xl p-16"
 				in:fly={{
 					delay: 0,
 					duration: 600,
@@ -24,7 +24,7 @@
 					easing: quintOut
 				}}
 			>
-				<p class="right-6 top-2 absolute text-sm">
+				<p class="absolute right-6 top-2 text-sm">
 					Reçu le :
 					<span>{contact.createAt.toLocaleDateString()}</span>
 				</p>
@@ -44,17 +44,23 @@
 						<p>{contact.description}</p>
 					</div>
 				</div>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 512 512"
-					class="place-self-end"
+				<button
+					class="flex place-self-end"
 					on:click={() => {
 						showResponse = true;
 					}}
-					><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path
-						d="M205 34.8c11.5 5.1 19 16.6 19 29.2v64H336c97.2 0 176 78.8 176 176c0 113.3-81.5 163.9-100.2 174.1c-2.5 1.4-5.3 1.9-8.1 1.9c-10.9 0-19.7-8.9-19.7-19.7c0-7.5 4.3-14.4 9.8-19.5c9.4-8.8 22.2-26.4 22.2-56.7c0-53-43-96-96-96H224v64c0 12.6-7.4 24.1-19 29.2s-25 3-34.4-5.4l-160-144C3.9 225.7 0 217.1 0 208s3.9-17.7 10.6-23.8l160-144c9.4-8.5 22.9-10.6 34.4-5.4z"
-					/></svg
+					on:keypress={() => {
+						showResponse = true;
+					}}
 				>
+					<span class="px-8 text-sm">Répondre</span>
+
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+						><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path
+							d="M205 34.8c11.5 5.1 19 16.6 19 29.2v64H336c97.2 0 176 78.8 176 176c0 113.3-81.5 163.9-100.2 174.1c-2.5 1.4-5.3 1.9-8.1 1.9c-10.9 0-19.7-8.9-19.7-19.7c0-7.5 4.3-14.4 9.8-19.5c9.4-8.8 22.2-26.4 22.2-56.7c0-53-43-96-96-96H224v64c0 12.6-7.4 24.1-19 29.2s-25 3-34.4-5.4l-160-144C3.9 225.7 0 217.1 0 208s3.9-17.7 10.6-23.8l160-144c9.4-8.5 22.9-10.6 34.4-5.4z"
+						/></svg
+					>
+				</button>
 			</div>
 		{:else}
 			<form
@@ -73,7 +79,7 @@
 				<div class="grid grid-cols-3 gap-y-6">
 					<div class="col-span-2">
 						<label for="to">Pour : </label>
-						<input type="text" name="to" value={contact.email} disabled />
+						<input type="text" name="to" value={contact.email} />
 						{#if form?.invalidTo}
 							<p>Something went wrong</p>
 						{/if}
@@ -82,26 +88,22 @@
 						<label for="subject">Sujet : </label>
 						<input type="text" name="subject" />
 					</div>
-					<div class="col-span-2">
-						<label for="text">Sujet : </label>
-						<input type="text" name="text" />
-					</div>
 					<div class="col-span-3">
 						<label for="html">Message : </label>
-						<textarea type="text" name="html" rows="4" />
+						<textarea type="text" name="html" rows="4" cols="4" />
 					</div>
 				</div>
-				<div class="pt-10 flex justify-end">
+				<div class="flex justify-end pt-10">
 					<div class="pr-4">
 						<Button
 							type="del"
 							on:click={() => {
 								showResponse = false;
-							}}>Cancel</Button
+							}}>Annuler</Button
 						>
 					</div>
 					<div>
-						<Button type="primary">Send mail</Button>
+						<Button type="primary">Envoyer email</Button>
 					</div>
 				</div>
 			</form>
@@ -142,7 +144,7 @@
 	svg {
 		width: 26px;
 		height: 26px;
-		fill: crimson;
+		fill: var(--red);
 		cursor: pointer;
 		transition: linear 300ms;
 	}

@@ -1,8 +1,12 @@
-<script>
-	import Button from '$lib/ui/Button.svelte';
+<script lang="ts">
 	import { modalStore } from '$lib/stores/modalStore';
 	import { page } from '$app/stores';
-	import { dataset_dev } from 'svelte/internal';
+	import { invalidateAll } from '$app/navigation';
+	import { enhance, applyAction } from '$app/forms';
+	import Button from '$lib/ui/Button.svelte';
+	import Icon from '@iconify/svelte';
+	import LoginIcon from '$lib/icons/LoginIcon.svelte';
+	import LogoutIcon from '$lib/icons/LogoutIcon.svelte';
 
 	let y = 0;
 	let onMove = 'scrolled';
@@ -16,14 +20,15 @@
 
 {#if y === 0}
 	<header>
-		<nav class="w-full flex justify-between items-center">
-			<div class="logo">
+		<nav class="flex w-full items-center justify-between">
+			<div class="logo flex items-center">
 				<img src="/img/vectorpaint.svg" alt="logo joao reis" />
 			</div>
 			<div class="flex">
-				<div class="flex md:hidden justify-end">
+				<div class="flex justify-end md:hidden">
 					<svg
 						on:click={handle}
+						on:keypress={handle}
 						fill="var(--green)"
 						width="36"
 						height="36"
@@ -50,42 +55,55 @@
 						</g>
 					</svg>
 				</div>
-				<div class="hidden md:visible md:flex">
+				<nav class="hidden md:visible md:flex">
 					<ol class="flex flex-row items-center">
-						<li class="lnk"><a href="#me" on:click|preventDefault> Moi</a></li>
+						<li class="lnk"><a href="../" on:click> Accueil</a></li>
+						<li class="lnk"><a href="../#me" on:click> Moi</a></li>
 						<li class="lnk">
-							<a href="#experience" on:click|preventDefault> Expérience</a>
+							<a href="../#experience" on:click> Expérience</a>
 						</li>
 						<li class="lnk">
-							<a href="#projets" on:click|preventDefault> Projets</a>
+							<a href="../#contact" on:click> Contact</a>
 						</li>
-						<li class="lnk">
-							<a href="#contact" on:click|preventDefault> Contact</a>
-						</li>
-						<li class="lnk">
-							{#if $page.data.user}
-								<div class="flex justify-end w-full">
-									<a href="/logout" type="delLitle">Logout</a>
-								</div>
-							{:else}
-								<div class="flex justify-end w-full">
-									<a href="/login">Login</a>
-								</div>
-							{/if}
-						</li>
+						{#if $page.data.user}
+							<li class="lnk">
+								<a href="/admin"> Tableau de bord</a>
+							</li>
+							<form
+								class="logout flex items-center px-10"
+								action="/logout"
+								method="POST"
+								use:enhance={() => {
+									return async ({ result }) => {
+										invalidateAll();
+										await applyAction(result);
+									};
+								}}
+							>
+								<button href="/" type="submit" class="flex items-center">
+									<LogoutIcon width="2em" colour="var(--red)" />
+								</button>
+							</form>
+						{:else}
+							<form class="login flex items-center px-10" action="/login">
+								<button type="submit" class="flex items-center">
+									<LoginIcon width="2em" colour="var(--green)" />
+								</button>
+							</form>
+						{/if}
 					</ol>
-				</div>
+				</nav>
 			</div>
 		</nav>
 	</header>
 {:else}
 	<header class="{onMove} shadow-xl">
-		<nav class="w-full flex justify-between items-center">
+		<nav class="flex w-full items-center justify-between">
 			<div class="logo">
 				<img src="/img/vectorpaint.svg" alt="logo joao reis" />
 			</div>
 			<div class="flex">
-				<div class="flex visible md:invisible justify-end">
+				<div class="visible flex justify-end md:invisible">
 					<svg
 						fill="var(--green)"
 						width="36"
@@ -100,6 +118,7 @@
 						style="enable-background:new 0 0 64 64;"
 						xml:space="preserve"
 						on:click={handle}
+						on:keypress={handle}
 					>
 						<g>
 							<path
@@ -114,31 +133,44 @@
 						</g>
 					</svg>
 				</div>
-				<div class="hidden md:visible md:flex">
+				<nav class="hidden md:visible md:flex">
 					<ol class="flex flex-row items-center">
-						<li class="lnk"><a href="#me" on:click|preventDefault> Moi</a></li>
+						<li class="lnk"><a href="./" on:click> Accueil</a></li>
+						<li class="lnk"><a href="../#me" on:click> Moi</a></li>
 						<li class="lnk">
-							<a href="#experience" on:click|preventDefault> Expérience</a>
+							<a href="../#experience" on:click> Expérience</a>
 						</li>
 						<li class="lnk">
-							<a href="#projets" on:click|preventDefault> Projets</a>
+							<a href="../#contact" on:click> Contact</a>
 						</li>
-						<li class="lnk">
-							<a href="#contact" on:click|preventDefault> Contact</a>
-						</li>
-						<li class="lnk">
-							{#if $page.data.user}
-								<div class="flex justify-end w-full">
-									<a href="/logout" type="delLitle">Logout</a>
-								</div>
-							{:else}
-								<div class="flex justify-end w-full">
-									<a href="/login">Login</a>
-								</div>
-							{/if}
-						</li>
+						{#if $page.data.user}
+							<li class="lnk">
+								<a href="/admin"> Tableau de bord</a>
+							</li>
+							<form
+								class="logout flex items-center px-10"
+								action="/logout"
+								method="POST"
+								use:enhance={() => {
+									return async ({ result }) => {
+										invalidateAll();
+										await applyAction(result);
+									};
+								}}
+							>
+								<button href="/" type="submit" class="flex items-center">
+									<LogoutIcon width="2em" colour="var(--red)" />
+								</button>
+							</form>
+						{:else}
+							<form class="login flex items-center px-10" action="/login">
+								<button type="submit" class="flex items-center">
+									<LoginIcon width="2em" colour="var(--green)" />
+								</button>
+							</form>
+						{/if}
 					</ol>
-				</div>
+				</nav>
 			</div>
 		</nav>
 	</header>

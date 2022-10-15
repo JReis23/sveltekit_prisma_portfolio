@@ -16,8 +16,8 @@ model User {
   username      String?
   passwordHash  String
   email         String   @unique
-  isAdmin       Boolean  @default(false)
   userAuthToken String   @unique
+  role          Role     @default(USER)
 }
 
 model Contact {
@@ -28,6 +28,11 @@ model Contact {
   createAt    DateTime @default(now())
   updateAt    DateTime @updatedAt
   choice      String
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 // enum Choice {

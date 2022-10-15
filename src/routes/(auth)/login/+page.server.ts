@@ -1,18 +1,17 @@
-import { invalid, redirect } from '@sveltejs/kit'
 import bcrypt from 'bcrypt'
-import type { Actions, PageServerLoad } from './$types'
-
+import { invalid, redirect } from '@sveltejs/kit'
 import { db } from '$lib/db'
+import type { Action, Actions, PageServerLoad } from './$types'
+
 
 export const load: PageServerLoad = async ({ locals }) => {
 	// redirect to `/` if logged in
 	if (locals.user) {
-		throw redirect(302, '/')
+		throw redirect(302, '/admin')
 	}
 }
 
-export const actions: Actions = {
-	default: async ({ request, cookies }) => {
+const login: Action = async ({ cookies, request }) => {
 		const data = await request.formData()
 		const email = data.get('email')
 		const password = data.get('password')
@@ -35,7 +34,7 @@ export const actions: Actions = {
 		const userPassword = await bcrypt.compare(password, user.passwordHash)
 
 		if (!userPassword) {
-			return invalid(400, { credentials: true })
+			return invalid(400, { password: true })
 		}
 
 		// generate new auth token to be secure
@@ -57,5 +56,6 @@ export const actions: Actions = {
 			// set cookie to expire after a month
 			maxAge: 60 * 60 * 24 * 30,
 		})
-	},
-}
+	}
+
+export const actions: Actions = { login }

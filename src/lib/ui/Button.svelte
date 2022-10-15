@@ -4,6 +4,7 @@
 	export let href = '';
 	export let rel = '';
 	export let target = '';
+	export let tailwindStyle = '';
 </script>
 
 {#if href}
@@ -11,7 +12,7 @@
 		<slot />
 	</a>
 {:else}
-	<button class="{type} {active}" on:click on:submit|preventDefault>
+	<button class="{type} {active} {tailwindStyle}" on:click on:submit>
 		<slot />
 	</button>
 {/if}
@@ -95,8 +96,8 @@
 	}
 
 	.del {
-		border: 1px solid crimson;
-		color: crimson;
+		border: 1px solid var(--red);
+		color: var(--red);
 		display: flex;
 		align-items: center;
 		border-radius: 3px;

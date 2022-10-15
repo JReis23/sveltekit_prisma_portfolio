@@ -24,9 +24,8 @@ export const actions: Actions = {
     const data = await request.formData();
     const to = data.get('to');
     const subject = data.get('subject');
-    const text = data.get('text');
+    // const text = data.get('text');
     const html = data.get('html');
-
     if(
       typeof to !== 'string' ||
       !to
@@ -39,12 +38,12 @@ export const actions: Actions = {
     ) {
       return invalid(400, {invalidSubject: true})
     }
-    if(
-      typeof text !== 'string' ||
-      !text
-    ) {
-      return invalid(400, {invalidText: true})
-    }
+    // if(
+    //   typeof text !== 'string' ||
+    //   !text
+    // ) {
+    //   return invalid(400, {invalidText: true})
+    // }
     if(
       typeof html !== 'string' ||
       !html
@@ -57,7 +56,7 @@ export const actions: Actions = {
           to,
           from: 'cjfreis23@gmail.com',
           subject,
-          text,
+          // text,
           html,
       }
     sgMail

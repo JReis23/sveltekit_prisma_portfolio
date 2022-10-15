@@ -1,6 +1,6 @@
 <script>
+	import { redirect } from '@sveltejs/kit';
 	import { createEventDispatcher } from 'svelte';
-
 	const dispatch = createEventDispatcher();
 
 	const close = () => {
@@ -8,10 +8,11 @@
 	};
 </script>
 
-<div class="backdrop" on:click={close}>
-	<div class="modal-content rounded-lg relative">
+<div class="backdrop" on:click={close} on:keypress={close}>
+	<div class="modal-content relative rounded-lg">
 		<svg
 			on:click={close}
+			on:keypress={close}
 			fill="var(--green)"
 			width="44"
 			height="44"

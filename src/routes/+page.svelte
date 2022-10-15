@@ -5,13 +5,10 @@
 	import Social from '$lib/components/Social.svelte';
 	import Modal from '$lib/ui/Modal.svelte';
 	import Button from '$lib/ui/Button.svelte';
-	import { modalStore } from '$lib/stores/modalStore';
 	import type { ActionData } from './$types';
 	import { enhance } from '$app/forms';
 
 	export let form: ActionData;
-
-	let showModal = false;
 
 	let choice = [
 		{ value: 'WORK', desc: "J'ai une proposition de travail" },
@@ -22,7 +19,6 @@
 	let name: string = '';
 	let email: string = '';
 	let description: string = '';
-	// let choice: string = '';
 </script>
 
 <Social />
@@ -47,7 +43,7 @@
 				<input type="text" placeholder="Votre nom" name="name" bind:value={name} />
 				<label for="name" class="">
 					{#if form?.invalidName}
-						<span class="label-text-alt invalid">Nom invalide</span>
+						<span class="invalid label-text-alt">Nom invalide</span>
 					{/if}
 				</label>
 			</div>
@@ -65,7 +61,7 @@
 				/>
 				<label for="name" class="">
 					{#if form?.invalidEmail}
-						<span class="label-text-alt invalid">E-mail invalide</span>
+						<span class="invalid label-text-alt">E-mail invalide</span>
 					{/if}
 				</label>
 			</div>
@@ -83,12 +79,12 @@
 				/>
 				<label for="name" class="flex justify-between">
 					{#if form?.invalidDescription}
-						<span class="label-text-alt invalid">
+						<span class="invalid label-text-alt">
 							Description must have more then 10 characters and less then 255</span
 						>
 					{/if}
 					<span
-						class="label-text-alt invalid pb-6"
+						class="invalid label-text-alt pb-6"
 						class:colorChange={description.length >= 10
 							? description.length <= 255
 								? 'colorChange'
@@ -116,7 +112,7 @@
 						<div>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
-								class="stroke-current flex-shrink-0 h-6 w-6"
+								class="h-6 w-6 flex-shrink-0 stroke-current"
 								fill="none"
 								viewBox="0 0 24 24"
 								><path
