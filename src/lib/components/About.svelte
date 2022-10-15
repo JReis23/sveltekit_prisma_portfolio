@@ -27,15 +27,15 @@
 			<div class="flex flex-row">
 				<ul>
 					<li>Svelte</li>
-					<li>Django</li>
-					<li>Python</li>
+					<li>SvelteKit</li>
+					<li>JavaScript</li>
 					<li>Tailwind</li>
 				</ul>
 				<ul>
-					<li>JavaScript</li>
-					<li>Bootstrap</li>
-					<li>HTML</li>
-					<li>CSS</li>
+					<li>Django</li>
+					<li>Python</li>
+					<li>Prisma</li>
+					<li>Supabase</li>
 				</ul>
 			</div>
 		</div>

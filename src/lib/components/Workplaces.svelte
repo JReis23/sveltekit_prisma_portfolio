@@ -1,5 +1,6 @@
 <script>
 	import Button from '$lib/ui/Button.svelte';
+	import { fade } from 'svelte/transition';
 
 	export let societyButton = 'noveoo';
 
@@ -27,7 +28,7 @@
 <section id="experience" class="workplaces">
 	<h2 class="numbered-heading">Expériences professionnelles</h2>
 	<div class="flex flex-col md:flex-row">
-		<div class="buttons flex flex-row md:flex-col self-baseline">
+		<div class="buttons flex flex-row self-baseline md:flex-col">
 			<Button
 				on:click={handleLectra}
 				active={societyButton === 'lectra' ? 'active' : ''}
@@ -54,112 +55,124 @@
 		</div>
 		<div class="md:px-8 ">
 			{#if societyButton === 'montauban'}
-				<div class="pb-6">
-					<h3>
-						Stagiaire <span
-							>@ <a href="https://www.montauban-renovation.com/" target="_blank">Montauban</a></span
-						>
-					</h3>
-					<p>février <span>2021</span> à mars <span>2012</span></p>
+				<div in:fade={{ delay: 100, duration: 700 }}>
+					<div class="pb-6">
+						<h3>
+							Stagiaire <span
+								>@ <a href="https://www.montauban-renovation.com/" target="_blank">Montauban</a
+								></span
+							>
+						</h3>
+						<p>février <span>2021</span> à mars <span>2012</span></p>
+					</div>
+					<ul>
+						<li>
+							Création d'une application pour la gestion du processus de la création du client à la
+							facturation des dossiers clients.
+						</li>
+						<li>
+							Application créée en Django et ensuite gérée par un administrateur et plusieurs
+							utlisateurs avec des différents rôles.
+						</li>
+						<li>Élaboration du projet avec la méthodologie <span>Scrum Agile</span></li>
+					</ul>
 				</div>
-				<ul>
-					<li>
-						Création d'une application pour la gestion du processus de la création du client à la
-						facturation des dossiers clients.
-					</li>
-					<li>
-						Application créée en Django et ensuite gérée par un administrateur et plusieurs
-						utlisateurs avec des différents rôles.
-					</li>
-					<li>Élaboration du projet avec la méthodologie <span>Scrum Agile</span></li>
-				</ul>
 			{:else if societyButton === 'rwf'}
-				<div class="pb-6">
-					<h3>
-						Apprenant <span
-							>@ <a href="https://ruralwebfactory.fr/" target="_blank">Rural Web Factory</a></span
-						>
-						by <span><a href="https://simplon.co/" target="_blank">Simplon</a></span>
-					</h3>
-					<p>Octobre 2020 à Juillet 2021</p>
+				<div in:fade={{ delay: 100, duration: 700 }}>
+					<div class="pb-6">
+						<h3>
+							Apprenant <span
+								>@ <a href="https://ruralwebfactory.fr/" target="_blank">Rural Web Factory</a></span
+							>
+							by <span><a href="https://simplon.co/" target="_blank">Simplon</a></span>
+						</h3>
+						<p>Octobre 2020 à Juillet 2021</p>
+					</div>
+					<ul>
+						<li>Apprentissage de langages de base comme JavaScript, HTML et CSS.</li>
+						<li>Conception de bases de données. Apprentissage MCD et MLD.</li>
+						<li>
+							Réalisation de plusieurs projets pour améliorer la connaissance générale du métier de
+							développeur
+						</li>
+					</ul>
 				</div>
-				<ul>
-					<li>Apprentissage de langages de base comme JavaScript, HTML et CSS.</li>
-					<li>Conception de bases de données. Apprentissage MCD et MLD.</li>
-					<li>
-						Réalisation de plusieurs projets pour améliorer la connaissance générale du métier de
-						développeur
-					</li>
-				</ul>
 			{:else if societyButton === 'patriarca'}
-				<div class="pb-6">
-					<h3>
-						Conducteur de travaux <span
-							>@ <a href="http://www.patriarca.fr" target="_blank">Patriarca</a></span
-						>
-					</h3>
-					<p>Janvier <span>2019</span> à Mars <span>2020</span></p>
+				<div in:fade={{ delay: 100, duration: 700 }}>
+					<div class="pb-6">
+						<h3>
+							Conducteur de travaux <span
+								>@ <a href="http://www.patriarca.fr" target="_blank">Patriarca</a></span
+							>
+						</h3>
+						<p>Janvier <span>2019</span> à Mars <span>2020</span></p>
+					</div>
+					<ul>
+						<li>
+							Coordination des travaux réalisés dans le cadre d’un ou plusieurs chantiers dans le
+							respect de la qualité, des délais et du budget.
+						</li>
+						<li>
+							Suivi technique, administratif et financier du chantier ainsi que des entreprises
+							sous-traitantes.
+						</li>
+						<li>
+							Etude du dossier et des contrats, préparation de l'opération, définition des besoins,
+							méthodes, moyens humains et matériels, planification de l'opération
+						</li>
+					</ul>
 				</div>
-				<ul>
-					<li>
-						Coordination des travaux réalisés dans le cadre d’un ou plusieurs chantiers dans le
-						respect de la qualité, des délais et du budget.
-					</li>
-					<li>
-						Suivi technique, administratif et financier du chantier ainsi que des entreprises
-						sous-traitantes.
-					</li>
-					<li>
-						Etude du dossier et des contrats, préparation de l'opération, définition des besoins,
-						méthodes, moyens humains et matériels, planification de l'opération
-					</li>
-				</ul>
 			{:else if societyButton === 'noveoo'}
-				<div class="pb-6">
-					<h3>
-						Développeur Web / Fondateur <span
-							>@ <a href="https://www.noveoo.fr/" target="_blank">Noveoo</a></span
-						>
-					</h3>
-					<p>Septembre <span>2021</span> à <span>Présent</span></p>
+				<div in:fade={{ delay: 100, duration: 700 }}>
+					<div class="pb-6">
+						<h3>
+							Développeur Web / Fondateur <span
+								>@ <a href="https://www.noveoo.fr/" target="_blank">Noveoo</a></span
+							>
+						</h3>
+						<p>Septembre <span>2021</span> à <span>Présent</span></p>
+					</div>
+					<ul>
+						<li>
+							Création de sites Vitrine, Ecommerce, site sur mesure et refonte de sites avec
+							l'utilisation de Svelte, CMS, Django, Tailwind, Bootstrap...
+						</li>
+						<li>
+							Suivi technique et maintenance des sites internet ou des applications web créés en
+							fonction des besoins.
+						</li>
+						<li>
+							Gestion de projet avec l'utlisation de la méthodologie Agile avec une approche Scrum.
+						</li>
+					</ul>
 				</div>
-				<ul>
-					<li>
-						Création de sites Vitrine, Ecommerce, site sur mesure et refonte de sites avec
-						l'utilisation de Svelte, CMS, Django, Tailwind, Bootstrap...
-					</li>
-					<li>
-						Suivi technique et maintenance des sites internet ou des applications web créés en
-						fonction des besoins.
-					</li>
-					<li>
-						Gestion de projet avec l'utlisation de la méthodologie Agile avec une approche Scrum.
-					</li>
-				</ul>
 			{:else if societyButton === 'lectra'}
-				<div class="pb-6">
-					<h3>
-						Développeur logiciel en JavaScript <span
-							>@ <a href="https://www.lectra.com/fr" target="_blank">Lectra France</a></span
-						>
-					</h3>
-					<p>Juin <span>2022</span> à <span>Présent</span></p>
+				<div in:fade={{ delay: 100, duration: 700 }}>
+					<div class="pb-6">
+						<h3>
+							Développeur logiciel en JavaScript <span
+								>@ <a href="https://www.lectra.com/fr" target="_blank">Lectra France</a></span
+							>
+						</h3>
+						<p>Juin <span>2022</span> à <span>Présent</span></p>
+					</div>
+					<ul>
+						<li>
+							Intégré au sein d’une équipe <span><strong>AGILE</strong></span>, je participe à
+							l’implémentation et l’intégration du PLM de la société dans les écosystèmes des
+							clients.
+						</li>
+						<li>
+							Ces activités consistent à de l’analyse / conception, du développement des
+							personnalisations, de la revue de code et de la validation manuelle.
+						</li>
+						<li>
+							Je participe à l’accompagnement technico fonctionnel des filiales et des clients
+							worldwide, de l’implémentation de process métiers clients, de l’intégration avec
+							l’écosystème clients et de la livraison des PLM.
+						</li>
+					</ul>
 				</div>
-				<ul>
-					<li>
-						Intégré au sein d’une équipe <span><strong>AGILE</strong></span>, je participe à
-						l’implémentation et l’intégration du PLM de la société dans les écosystèmes des clients.
-					</li>
-					<li>
-						Ces activités consistent à de l’analyse / conception, du développement des
-						personnalisations, de la revue de code et de la validation manuelle.
-					</li>
-					<li>
-						Je participe à l’accompagnement technico fonctionnel des filiales et des clients
-						worldwide, de l’implémentation de process métiers clients, de l’intégration avec
-						l’écosystème clients et de la livraison des PLM.
-					</li>
-				</ul>
 			{/if}
 		</div>
 	</div>
