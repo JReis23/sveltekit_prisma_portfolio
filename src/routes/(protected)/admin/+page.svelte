@@ -129,7 +129,7 @@
 									<img src="/icons/trashCan.svg" alt="trash can" />
 								</button>
 								{#if deleteConfirmation}
-									<Modal>
+									<Modal on:close={() => (deleteConfirmation = false)}>
 										<div class="flex w-full flex-col justify-center p-10">
 											<div class="py-10">
 												<p>Vous êtes sure de vouloir effacer ce contact ?</p>

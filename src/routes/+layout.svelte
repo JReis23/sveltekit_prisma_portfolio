@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '../app.postcss';
 	import Header from '$lib/components/Header.svelte';
-	import { page } from '$app/stores';
-	import '../app.postcss';
+	import ButtonToTop from '$lib/ui/ButtonToTop.svelte';
+	import NavPhone from '$lib/components/NavPhone.svelte';
 </script>
 
 <svelte:head>
@@ -10,9 +10,10 @@
 </svelte:head>
 
 <Header />
-
-<main class="w-full flex justify-center overflow-x-hidden">
-	<div class="main-div justify-center flex">
+<NavPhone />
+<main class="flex w-full justify-center overflow-x-hidden">
+	<div class="main-div flex justify-center">
 		<slot />
 	</div>
 </main>
+<ButtonToTop />

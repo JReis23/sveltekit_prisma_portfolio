@@ -1,18 +1,17 @@
 <script lang="ts">
-	import { modalStore } from '$lib/stores/modalStore';
+	import { modalStore, openNav } from '$lib/stores/writableStore';
 	import { page } from '$app/stores';
 	import { invalidateAll } from '$app/navigation';
 	import { enhance, applyAction } from '$app/forms';
-	import Button from '$lib/ui/Button.svelte';
-	import Icon from '@iconify/svelte';
 	import LoginIcon from '$lib/icons/LoginIcon.svelte';
 	import LogoutIcon from '$lib/icons/LogoutIcon.svelte';
 
 	let y = 0;
 	let onMove = 'scrolled';
 
-	const handle = () => {
-		$modalStore = !$modalStore;
+	const handleNav = () => {
+		$openNav = !$openNav;
+		console.log($openNav);
 	};
 </script>
 
@@ -27,8 +26,8 @@
 			<div class="flex">
 				<div class="flex justify-end md:hidden">
 					<svg
-						on:click={handle}
-						on:keypress={handle}
+						on:click={handleNav}
+						on:keypress={handleNav}
 						fill="var(--green)"
 						width="36"
 						height="36"
@@ -55,7 +54,7 @@
 						</g>
 					</svg>
 				</div>
-				<nav class="hidden md:visible md:flex">
+				<div class="hidden md:visible md:flex">
 					<ol class="flex flex-row items-center">
 						<li class="lnk"><a href="../" on:click> Accueil</a></li>
 						<li class="lnk"><a href="../#me" on:click> Moi</a></li>
@@ -92,7 +91,7 @@
 							</form>
 						{/if}
 					</ol>
-				</nav>
+				</div>
 			</div>
 		</nav>
 	</header>
@@ -117,8 +116,8 @@
 						viewBox="0 0 64 64"
 						style="enable-background:new 0 0 64 64;"
 						xml:space="preserve"
-						on:click={handle}
-						on:keypress={handle}
+						on:click={handleNav}
+						on:keypress={handleNav}
 					>
 						<g>
 							<path
@@ -133,7 +132,7 @@
 						</g>
 					</svg>
 				</div>
-				<nav class="hidden md:visible md:flex">
+				<div class="hidden md:visible md:flex">
 					<ol class="flex flex-row items-center">
 						<li class="lnk"><a href="./" on:click> Accueil</a></li>
 						<li class="lnk"><a href="../#me" on:click> Moi</a></li>
@@ -170,7 +169,7 @@
 							</form>
 						{/if}
 					</ol>
-				</nav>
+				</div>
 			</div>
 		</nav>
 	</header>

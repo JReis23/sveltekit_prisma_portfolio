@@ -28,7 +28,7 @@
 <section id="experience" class="workplaces">
 	<h2 class="numbered-heading">Expériences professionnelles</h2>
 	<div class="flex flex-col md:flex-row">
-		<div class="buttons flex flex-row self-baseline md:flex-col">
+		<div class="buttons flex flex-row self-baseline py-10 md:flex-col md:py-0">
 			<Button
 				on:click={handleLectra}
 				active={societyButton === 'lectra' ? 'active' : ''}
