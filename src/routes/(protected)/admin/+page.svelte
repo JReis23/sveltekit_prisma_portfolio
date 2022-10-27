@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Modal from '$lib/ui/Modal.svelte';
 	import Button from '$lib/ui/Button.svelte';
-	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
 
 	type searchData = {
@@ -129,12 +128,12 @@
 									<img src="/icons/trashCan.svg" alt="trash can" />
 								</button>
 								{#if deleteConfirmation}
-									<Modal on:close={() => (deleteConfirmation = false)}>
+									<Modal>
 										<div class="flex w-full flex-col justify-center p-10">
 											<div class="py-10">
 												<p>Vous êtes sure de vouloir effacer ce contact ?</p>
 											</div>
-											<form method="post" class="flex justify-center overflow-x-auto">
+											<form method="POST" class="flex justify-center overflow-x-auto">
 												<input type="text" name="id" value={contact.id} hidden />
 												<Button
 													type="del"

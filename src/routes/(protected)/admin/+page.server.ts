@@ -21,12 +21,12 @@ export const load: PageServerLoad = async ({ locals }) => {
 export const actions: Actions = {
     default: async ({request}) => {
 		    const data = await request.formData()
+        console.log(data);
         const id = Number(data.get('id'))
-
         await db.contact.delete({
             where: {
               id
             },
-          })
+        })
     }
 }

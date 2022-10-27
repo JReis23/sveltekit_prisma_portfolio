@@ -2,7 +2,6 @@
 	import Button from '$lib/ui/Button.svelte';
 	import type { ActionData, PageData } from './$types';
 	import { enhance } from '$app/forms';
-	import { invalid } from '@sveltejs/kit';
 	import { fly, scale } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 
