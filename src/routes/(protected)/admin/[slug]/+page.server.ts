@@ -3,20 +3,26 @@ import type { PageServerLoad, Actions } from "./$types";
 import {env as private_env} from '$env/dynamic/private'
 import {db} from '$lib/db'
 import { invalid } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit'
 
 export let showResponse: boolean
 
-export const load: PageServerLoad = async ({params}) => {
+export const load: PageServerLoad = async ({params, locals}) => {
+  if (!locals.user) {
+    throw redirect(302, '/login')
+  } else {  
+    try {
     const id = Number(params.slug)
     const contactUnique = await db.contact.findMany({
         where: {
           id
         },
-      })
-      
-      return [contactUnique]
-      
-    }
+      })      
+      return [contactUnique]      
+    } catch (error) {
+     console.error("", error)
+  }}}
+    
     
 export const actions: Actions = {
   default: async ({request}) => {

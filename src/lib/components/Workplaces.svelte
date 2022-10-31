@@ -59,7 +59,8 @@
 					<div class="pb-6">
 						<h3>
 							Stagiaire <span
-								>@ <a href="https://www.montauban-renovation.com/" target="_blank">Montauban</a
+								>@ <a href="https://www.montauban-renovation.com/" target="_blank" rel="noreferrer"
+									>Montauban</a
 								></span
 							>
 						</h3>
@@ -82,9 +83,13 @@
 					<div class="pb-6">
 						<h3>
 							Apprenant <span
-								>@ <a href="https://ruralwebfactory.fr/" target="_blank">Rural Web Factory</a></span
+								>@ <a href="https://ruralwebfactory.fr/" target="_blank" rel="noreferrer"
+									>Rural Web Factory</a
+								></span
 							>
-							by <span><a href="https://simplon.co/" target="_blank">Simplon</a></span>
+							by
+							<span><a href="https://simplon.co/" target="_blank" rel="noreferrer">Simplon</a></span
+							>
 						</h3>
 						<p>Octobre 2020 à Juillet 2021</p>
 					</div>
@@ -102,7 +107,8 @@
 					<div class="pb-6">
 						<h3>
 							Conducteur de travaux <span
-								>@ <a href="http://www.patriarca.fr" target="_blank">Patriarca</a></span
+								>@ <a href="http://www.patriarca.fr" target="_blank" rel="noreferrer">Patriarca</a
+								></span
 							>
 						</h3>
 						<p>Janvier <span>2019</span> à Mars <span>2020</span></p>
@@ -127,7 +133,8 @@
 					<div class="pb-6">
 						<h3>
 							Développeur Web / Fondateur <span
-								>@ <a href="https://www.noveoo.fr/" target="_blank">Noveoo</a></span
+								>@ <a href="https://www.noveoo.fr/" target="_blank" rel="noreferrer">Noveoo</a
+								></span
 							>
 						</h3>
 						<p>Septembre <span>2021</span> à <span>Présent</span></p>
@@ -151,7 +158,9 @@
 					<div class="pb-6">
 						<h3>
 							Développeur logiciel en JavaScript <span
-								>@ <a href="https://www.lectra.com/fr" target="_blank">Lectra France</a></span
+								>@ <a href="https://www.lectra.com/fr" target="_blank" rel="noreferrer"
+									>Lectra France</a
+								></span
 							>
 						</h3>
 						<p>Juin <span>2022</span> à <span>Présent</span></p>

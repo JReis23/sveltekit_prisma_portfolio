@@ -63,6 +63,7 @@
 						href="https://github.com/JReis23"
 						target="_blank"
 						class="hover:shadow-xl"
+						rel="noreferrer"
 					>
 						<svg
 							fill="#000000"
@@ -94,6 +95,7 @@
 						on:click={handleCloseNav}
 						href="https://www.linkedin.com/in/joao-reis-54199b177/"
 						target="_blank"
+						rel="noreferrer"
 						class="hover:shadow-xl"
 					>
 						<svg
@@ -142,6 +144,7 @@
 						on:click={handleCloseNav}
 						href="https://twitter.com/ego2323"
 						target="_blank"
+						rel="noreferrer"
 						class="hover:shadow-xl"
 					>
 						<svg
@@ -173,6 +176,7 @@
 						on:click={handleCloseNav}
 						href="https://www.facebook.com/joao.reis.5832"
 						target="_blank"
+						rel="noreferrer"
 						class="hover:shadow-xl"
 					>
 						<svg
@@ -248,9 +252,5 @@
 
 	svg:hover {
 		fill: var(--green);
-	}
-
-	.button {
-		padding-top: 1rem;
 	}
 </style>

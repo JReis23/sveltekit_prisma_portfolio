@@ -15,7 +15,12 @@
 	<div class="social fixed bottom-0 left-0">
 		<ul>
 			<li class="social-link" in:fly={{ y: 200, duration: 1400 }}>
-				<a href="https://github.com/JReis23" target="_blank" class="hover:shadow-xl">
+				<a
+					href="https://github.com/JReis23"
+					target="_blank"
+					rel="noreferrer"
+					class="hover:shadow-xl"
+				>
 					<svg
 						fill="#000000"
 						width="52"
@@ -46,6 +51,7 @@
 					href="https://www.linkedin.com/in/joao-reis-54199b177/"
 					target="_blank"
 					class="hover:shadow-xl"
+					rel="noreferrer"
 				>
 					<svg
 						fill="#000000"
@@ -89,7 +95,12 @@
 				</a>
 			</li>
 			<li class="social-link hover:shadow-xl" in:fly={{ y: 200, duration: 1400, delay: 1400 }}>
-				<a href="https://twitter.com/ego2323" target="_blank" class="hover:shadow-xl">
+				<a
+					href="https://twitter.com/ego2323"
+					target="_blank"
+					rel="noreferrer"
+					class="hover:shadow-xl"
+				>
 					<svg
 						fill="#000000"
 						width="52"
@@ -115,7 +126,12 @@
 				</a>
 			</li>
 			<li class="social-link hover:shadow-xl" in:fly={{ y: 200, duration: 1400, delay: 2100 }}>
-				<a href="https://www.facebook.com/joao.reis.5832" target="_blank" class="hover:shadow-xl">
+				<a
+					href="https://www.facebook.com/joao.reis.5832"
+					target="_blank"
+					rel="noreferrer"
+					class="hover:shadow-xl"
+				>
 					<svg
 						fill="#000000"
 						width="52"
