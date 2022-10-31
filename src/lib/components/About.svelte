@@ -69,6 +69,7 @@
 		z-index: 1;
 		position: relative;
 		max-width: 250px;
+		width: auto;
 		height: auto;
 	}
 
