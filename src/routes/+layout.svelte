@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>SvelteKit Auth</title>
+	<title>Joao REIS - Développeur Web Nouvelle Aquitaine, Bordeaux</title>
 </svelte:head>
 
 <Header />
