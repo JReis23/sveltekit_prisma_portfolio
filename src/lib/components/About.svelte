@@ -69,7 +69,7 @@
 		z-index: 1;
 		position: relative;
 		max-width: 250px;
-		width: auto;
+		width: clamp(150px, 30vw, 200px);
 		height: auto;
 	}
 
