@@ -186,6 +186,7 @@
 
 	img {
 		width: 40px;
+		height: 30px;
 	}
 
 	a {

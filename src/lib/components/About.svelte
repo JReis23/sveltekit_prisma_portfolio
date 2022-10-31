@@ -68,6 +68,8 @@
 		border-radius: 5px;
 		z-index: 1;
 		position: relative;
+		max-width: 250px;
+		height: auto;
 	}
 
 	picture::after {
