@@ -32,10 +32,7 @@
 	<h2 class="numbered-heading">Contactez-moi</h2>
 	<div class="flex flex-col items-center">
 		<article>
-			<p class="">
-				Que vous ayez une question ou que vous souhaitiez simplement me saluer, je ferai de mon
-				mieux pour vous répondre !
-			</p>
+			<p class="text-center">N'hésitez a me laisser une message 😄</p>
 		</article>
 		<form method="POST" use:enhance>
 			<div class="form-control">

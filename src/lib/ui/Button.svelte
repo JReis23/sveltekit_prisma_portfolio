@@ -50,15 +50,15 @@
 		text-align: center;
 		transition: all 0.1s ease-in-out;
 		cursor: pointer;
-		background: #0a182e;
-		box-shadow: -20px 20px 60px #060e1b, 20px -20px 60px #0e2241;
+		background: linear-gradient(145deg, #0b1a31, #091629);
+		box-shadow: 3px 3px 14px #040a12, -3px -3px 14px #10264a;
 		color: var(--green);
 	}
 
 	.primary-main:hover {
 		border-radius: 15px;
-		background: linear-gradient(225deg, #091629, #0b1a31);
-		box-shadow: -20px 20px 60px #060e1b, 20px -20px 60px #0e2241;
+		background: #0a182e;
+		box-shadow: inset 7px 7px 14px #091629, inset -7px -7px 14px #0b1a33;
 	}
 
 	.primary-main:active {
