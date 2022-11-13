@@ -5,6 +5,7 @@
 	import { enhance, applyAction } from '$app/forms';
 	import LoginIcon from '$lib/icons/LoginIcon.svelte';
 	import LogoutIcon from '$lib/icons/LogoutIcon.svelte';
+	import Button from '$lib/ui/Button.svelte';
 
 	let y = 0;
 
@@ -23,7 +24,7 @@
 		<div class="flex">
 			<div class="flex justify-end md:hidden">
 				<svg
-					on:click={handleNav}
+					on:click|preventDefault={handleNav}
 					on:keypress={handleNav}
 					fill="var(--green)"
 					width="36"
@@ -53,40 +54,17 @@
 			</div>
 			<div class="hidden md:visible md:flex">
 				<ol class="flex flex-row items-center">
-					<li class="lnk"><a href="/"> Accueil</a></li>
-					<li class="lnk"><a href="/#me"> Moi</a></li>
-					<li class="lnk">
+					<li><a href="/"> Accueil</a></li>
+					<li><a href="/#me"> Moi</a></li>
+					<li>
 						<a href="/#experience"> Expérience</a>
 					</li>
-					<li class="lnk">
+					<li>
 						<a href="/#contact"> Contact</a>
 					</li>
-					{#if $page.data.user}
-						<li class="lnk">
-							<a href="/admin"> Tableau de bord</a>
-						</li>
-						<form
-							class="logout flex items-center px-10"
-							action="/logout"
-							method="POST"
-							use:enhance={() => {
-								return async ({ result }) => {
-									invalidateAll();
-									await applyAction(result);
-								};
-							}}
-						>
-							<button href="/" type="submit" class="flex items-center">
-								<LogoutIcon width="2em" colour="var(--red)" />
-							</button>
-						</form>
-					{:else}
-						<form class="login flex items-center px-10" action="/login">
-							<button type="submit" class="flex items-center">
-								<LoginIcon width="2em" colour="var(--green)" />
-							</button>
-						</form>
-					{/if}
+					<li>
+						<a href="/admin"> Tableau de bord</a>
+					</li>
 				</ol>
 			</div>
 		</div>

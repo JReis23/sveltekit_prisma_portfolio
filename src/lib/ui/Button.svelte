@@ -146,6 +146,52 @@
 		background: rgba(var(--rgba-green), 0.2);
 	}
 
+	.login {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 80px;
+		border-radius: 150px;
+		background: linear-gradient(145deg, #0b1a31, #091629);
+		box-shadow: 3px 3px 14px #040a12, -3px -3px 14px #10264a;
+		margin: 3rem 3rem;
+		padding: 1.4em;
+		position: fixed;
+		color: var(--green);
+		bottom: 0;
+		right: 0;
+	}
+
+	.login:hover {
+		border-radius: 150px;
+		background: #0a182e;
+		box-shadow: inset 7px 7px 14px #091629, inset -7px -7px 14px #0b1a33;
+	}
+
+	.logout {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 80px;
+		border-radius: 150px;
+		background: linear-gradient(145deg, #0b1a31, #091629);
+		box-shadow: 3px 3px 14px #040a12, -3px -3px 14px #10264a;
+		margin: 3rem 3rem;
+		padding: 1.4em;
+		position: fixed;
+		color: var(--red);
+		bottom: 0;
+		right: 0;
+	}
+
+	.logout:hover {
+		border-radius: 150px;
+		background: #0a182e;
+		box-shadow: inset 7px 7px 14px #091629, inset -7px -7px 14px #0b1a33;
+	}
+
 	@media (max-width: 768px) {
 		.secondary {
 			padding: 0.3rem 0.3rem;

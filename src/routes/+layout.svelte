@@ -1,17 +1,22 @@
 <script lang="ts">
 	import '../app.postcss';
 	import Header from '$lib/components/Header.svelte';
-	import ButtonToTop from '$lib/ui/ButtonToTop.svelte';
 	import NavPhone from '$lib/components/NavPhone.svelte';
 	import Landing from '$lib/components/Landing.svelte';
-	import { navigating } from '$app/stores';
 	import { Stretch } from 'svelte-loading-spinners';
-	import { visited } from '$lib/stores/writableStore';
+	import { browser } from '$app/environment';
 
-	let introPage: boolean;
-	if ($visited === 'Visited') {
-		introPage = false;
-	} else {
+	let introPage: boolean = false;
+	const diff_minutes = () => {
+		let dt1: any = browser && Number(localStorage.Visited);
+		let dt2: number = Date.now();
+		let diff = (dt2 - dt1) / 1000;
+		diff /= 60;
+		return Math.abs(Math.round(diff));
+	};
+
+	if (diff_minutes() >= 30) {
+		browser && localStorage.clear();
 		introPage = true;
 		setTimeout(() => {
 			introPage = false;
@@ -25,10 +30,10 @@
 
 {#if introPage}
 	<Landing />
-{:else if $navigating}
+	<!-- {#if $navigating}
 	<main class="grid h-screen w-screen place-items-center">
 		<Stretch size="60" color="var(--green)" unit="px" duration="1s" />
-	</main>
+	</main> -->
 {:else}
 	<Header />
 	<NavPhone />
@@ -37,5 +42,5 @@
 			<slot />
 		</div>
 	</main>
-	<ButtonToTop />
 {/if}
+<!-- {/if} -->

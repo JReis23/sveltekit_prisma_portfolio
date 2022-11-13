@@ -2,7 +2,7 @@
 	import Button from '$lib/ui/Button.svelte';
 	import { fade } from 'svelte/transition';
 
-	export let societyButton = 'noveoo';
+	export let societyButton = 'lectra';
 
 	const handleNoveoo = () => {
 		societyButton = 'noveoo';

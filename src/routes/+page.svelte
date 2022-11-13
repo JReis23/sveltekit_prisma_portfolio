@@ -5,8 +5,10 @@
 	import Social from '$lib/components/Social.svelte';
 	import Modal from '$lib/ui/Modal.svelte';
 	import Button from '$lib/ui/Button.svelte';
+	import { page } from '$app/stores';
+	import { invalidateAll } from '$app/navigation';
+	import { enhance, applyAction } from '$app/forms';
 	import type { ActionData } from './$types';
-	import { enhance } from '$app/forms';
 
 	export let form: ActionData;
 
@@ -130,6 +132,22 @@
 		</form>
 	</div>
 </section>
+{#if $page.data.user}
+	<form
+		action="/logout"
+		method="POST"
+		use:enhance={() => {
+			return async ({ result }) => {
+				invalidateAll();
+				await applyAction(result);
+			};
+		}}
+	>
+		<Button type="logout">Logout</Button>
+	</form>
+{:else}
+	<Button type="login" href="/login">Login</Button>
+{/if}
 
 <style>
 	div {
