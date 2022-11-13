@@ -15,7 +15,12 @@
 		return Math.abs(Math.round(diff));
 	};
 
-	if (diff_minutes() >= 30) {
+	if (diff_minutes() === 0) {
+		introPage = true;
+		setTimeout(() => {
+			introPage = false;
+		}, 2000);
+	} else if (diff_minutes() >= 30) {
 		browser && localStorage.clear();
 		introPage = true;
 		setTimeout(() => {
